@@ -10,14 +10,27 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/tablazat',
+      name: 'Táblázat',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+      component: () => import('../views/KarakterTablazat.vue'),
+      meta: { title: "Táblázat"}
+    },
+    {
+      path: '/kartyak',
+      name: 'Kártyák',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/KarakterKartya.vue'),
+      meta: { title: "Kártyák"}
+    },
   ]
 })
-
+router.beforeEach((to, from, next) =>{
+  document.title= to.meta.title ? `${to.meta.title}` : 'Karakterek';
+  next();
+})
 export default router

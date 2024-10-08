@@ -1,9 +1,7 @@
-<script setup>
+<script>
 
 </script>
 
 <template>
-  <main>
-   
-  </main>
+  <h1>Sziaaa! üdvözöllek a kezdőlapon!</h1>
 </template>
