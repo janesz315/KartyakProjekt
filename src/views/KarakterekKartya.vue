@@ -1,7 +1,4 @@
 <template>
-  <h1>Sziaa</h1>
-  <h1>Hahó</h1>
-  <p>{{ searchWord }}</p>
   <!-- karta -->
   <div
     class="row row-cols-1 row-cols-md-3 row-col-lg-4 g-4"
@@ -23,7 +20,7 @@
     </KarakterKartya>
   </div>
   <div v-if="szurtKarakterek.length == 0"><h3>Nincs találat</h3></div>
-  <!-- HalInfo -->
+  <!-- KarakterInfo -->
   <KarakterInfo :title="keresJelol(kivalasztottKarakter.title)">
     <img
       :src="kivalasztottKarakter.image"
