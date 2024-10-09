@@ -5,37 +5,37 @@
   <!-- karta -->
   <div
     class="row row-cols-1 row-cols-md-3 row-col-lg-4 g-4"
-    v-if="szurtHalak.length > 0"
+    v-if="szurtKarakterek.length > 0"
   >
-    <HalKartya
-      v-for="hal in szurtHalak"
-      :key="hal.id"
-      :id="hal.id"
+    <KarakterKartya
+      v-for="karakter in szurtKarakterek"
+      :key="karakter.id"
+      :id="karakter.id"
       @podrobnostiModal="podrobnostiModalKezelo"
     >
       <!-- v-slot -->
       <template v-slot:image>
-        <img :src="hal.image" :alt="hal.title" />
+        <img :src="karakter.image" :alt="karakter.title" width="200" />
       </template>
       <template v-slot:title>
-        <h5 v-html="keresJelol(hal.title)"></h5>
+        <h5 v-html="keresJelol(karakter.title)"></h5>
       </template>
-    </HalKartya>
+    </KarakterKartya>
   </div>
-  <div v-if="szurtHalak.length == 0"><h3>Nincs találat</h3></div>
+  <div v-if="szurtKarakterek.length == 0"><h3>Nincs találat</h3></div>
   <!-- HalInfo -->
-  <HalInfo :title="keresJelol(kivalasztottHal.title)">
+  <KarakterInfo :title="keresJelol(kivalasztottKarakter.title)">
     <img
-      :src="kivalasztottHal.image"
-      :alt="kivalasztottHal.title"
+      :src="kivalasztottKarakter.image"
+      :alt="kivalasztottKarakter.title"
       class="float-start col-12 col-sm-6 col-lg-4 me-1 p-2 my-picture"
     />
     <div v-html="keresJelol(textFormat)"></div>
-  </HalInfo>
+  </KarakterInfo>
 </template>
 
 <script>
-class HalOsztaly {
+class KarakterOsztaly {
   constructor(id = 0, title = null, image = null, text = null) {
     this.id = id;
     this.title = title;
@@ -43,25 +43,26 @@ class HalOsztaly {
     this.text = text;
   }
 }
-import HalKartya from "@/components/HalKartya.vue";
-import HalInfo from "@/components/HalInfo.vue";
+import KarakterKartya from "@/components/KarakterKartya.vue";
+import KarakterInfo from "@/components/KarakterInfo.vue";
 export default {
-  components: { HalKartya, HalInfo },
+  components: { KarakterKartya, KarakterInfo },
   inject: ["searchWord", "karakterek"],
   data() {
     return {
-      kivalasztottHal: new HalOsztaly(),
+      kivalasztottKarakter: new KarakterOsztaly(),
     };
   },
+  
 
   computed: {
     textFormat() {
-      if (this.kivalasztottHal.text == null) {
+      if (this.kivalasztottKarakter.text == null) {
         return `<p></p>`;
       }
-      return this.kivalasztottHal.text.map((t) => `<p>${t}</p>`).join("");
+      return this.kivalasztottKarakter.text.map((t) => `<p>${t}</p>`).join("");
     },
-    szurtHalak() {
+    szurtKarakterek() {
       if (!this.searchWord) {
         return this.karakterek;
       }
@@ -77,7 +78,9 @@ export default {
 
   methods: {
     podrobnostiModalKezelo(id) {
-      this.kivalasztottHal = this.karakterek.filter((h) => h.id == id.id)[0];
+      this.kivalasztottKarakter = this.karakterek.filter(
+        (h) => h.id == id.id
+      )[0];
     },
     keresJelol(text) {
       if (this.searchWord) {

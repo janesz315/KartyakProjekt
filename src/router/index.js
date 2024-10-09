@@ -15,7 +15,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/KarakterTablazat.vue'),
+      component: () => import('../views/KarakterekTablazat.vue'),
       meta: { title: "Táblázat"}
     },
     {
@@ -24,7 +24,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/KarakterKartya.vue'),
+      component: () => import('../views/KarakterekKartya.vue'),
       meta: { title: "Kártyák"}
     },
   ]

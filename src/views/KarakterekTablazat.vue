@@ -13,10 +13,10 @@
           </tr>
         </thead>
         <tbody>
-          <!-- A tanulók neve és osztályuk -->
+          <!-- A karakterek neve, képe és leírása -->
           <tr v-for="(karakter, i) in karakterek" :key="i">
             <td v-html="keresJelol(karakter.title)"></td>
-            <td><img :src="karakter.image" :alt="karakter.title"></td>
+            <td><img :src="karakter.image" :alt="karakter.title" width="200"></td>
             <td v-html="keresJelol(formatText(karakter.text))"></td>
             
           </tr>
@@ -56,4 +56,7 @@ export default {
 </script>
 
 <style>
+.mark {
+  background-color: hotpink;
+}
 </style>
