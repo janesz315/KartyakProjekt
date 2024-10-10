@@ -1,7 +1,7 @@
 <template>
   <!-- karta -->
   <div
-    class="row row-cols-1 row-cols-md-3 row-col-lg-4 g-4"
+    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 container-fluid"
     v-if="szurtKarakterek.length > 0"
   >
     <KarakterKartya
@@ -12,7 +12,7 @@
     >
       <!-- v-slot -->
       <template v-slot:image>
-        <img :src="karakter.image" :alt="karakter.title" width="200" />
+        <img :src="karakter.image" class="img-fluid" :alt="karakter.title" width="200" />
       </template>
       <template v-slot:title>
         <h5 v-html="keresJelol(karakter.title)"></h5>
@@ -25,7 +25,7 @@
     <img
       :src="kivalasztottKarakter.image"
       :alt="kivalasztottKarakter.title"
-      class="float-start col-12 col-sm-6 col-lg-4 me-1 p-2 my-picture"
+      class="float-start col-12 col-sm-6 col-lg-4 me-1 p-2 my-picture img-fluid"
     />
     <div v-html="keresJelol(textFormat)"></div>
   </KarakterInfo>

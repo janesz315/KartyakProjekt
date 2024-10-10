@@ -1,6 +1,7 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
 import { computed } from "vue";
+import { debounce } from 'lodash';
 export default {
   provide() {
     return {
@@ -58,11 +59,16 @@ export default {
     };
   },
   watch: {
-    searchInput(data) {
-      if (!data) {
-        this.searchWord = null;
-      }
-    },
+    
+    searchInput: debounce(function(newValue) {
+      this.searchWord = newValue;
+    }, 300), // 300ms késleltetés
+    // searchInput(data) {
+    //   this.searchWord = data;
+    //   if (!data) {
+    //     this.searchWord = null;
+    //   }
+    // },
   },
   data() {
     return {
@@ -75,15 +81,24 @@ export default {
 
 <template>
   <div class="container-fluid my-container p-0 my-border">
-    <h1>téma</h1>
-    <nav
-      class="my-border p-4 d-flex justify-content-between align-items-center"
-    >
-      <div>
-        <RouterLink to="/">Home</RouterLink> |
-        <RouterLink to="/tablazat">Táblázat</RouterLink> |
-        <RouterLink to="/kartyak">Kártyák</RouterLink> |
-      </div>
+    <h1>Tündéri keresztszülők szereplői</h1>
+    <nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <RouterLink class="nav-link" to="/">Home</RouterLink>
+      </li>
+      <li class="nav-item">
+        <RouterLink class="nav-link" to="/tablazat">Táblázat</RouterLink>
+      </li>
+      <li class="nav-item">
+        <RouterLink class="nav-link" to="/kartyak">Kártyák</RouterLink>
+      </li>
+    </ul>
+  </div>
       <div class="d-flex align-items-center" role="search">
         <label for="searchWord" class="form-label text-nowrap m-0"
           >Keress egy szereplőre!</label
@@ -112,5 +127,14 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
+
+body {
+  background-image: url('/public/hatter.jpg'); /* Cseréld ki a pontos útvonalra */
+  background-size: cover; /* A kép kitölti a teljes hátteret */
+  background-repeat: no-repeat; /* Megakadályozza a kép ismétlését */
+  background-position: center; /* A kép középre pozicionálása */
+  background-attachment: fixed;
+  
+}
 </style>
