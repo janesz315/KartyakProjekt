@@ -137,4 +137,14 @@ body {
   background-attachment: fixed;
   
 }
+.btn {
+  padding: 10px 20px; /* Alapértelmezett méret */
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 15px 25px; /* Nagyobb méret mobilon */
+    font-size: 1.2rem;  /* Nagyobb betűméret mobilon */
+  }
+}
 </style>

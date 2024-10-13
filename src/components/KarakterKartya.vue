@@ -24,5 +24,16 @@
   </script>
   
   <style>
-  
+  .card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
   </style>
