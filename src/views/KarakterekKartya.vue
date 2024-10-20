@@ -20,6 +20,9 @@
     </KarakterKartya>
   </div>
   <div v-if="szurtKarakterek.length == 0"><h3>Nincs találat</h3></div>
+  <div v-else>
+  <h3>Találatok száma: {{ szurtKarakterek.length }}</h3>
+</div>
   <!-- KarakterInfo -->
   <KarakterInfo :title="keresJelol(kivalasztottKarakter.title)">
     <img
@@ -99,5 +102,15 @@ export default {
 <style>
 .mark {
   background-color: hotpink;
+}
+.btn {
+  padding: 10px 20px; /* Alapértelmezett méret */
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 15px 25px; /* Nagyobb méret mobilon */
+    font-size: 1.2rem;  /* Nagyobb betűméret mobilon */
+  }
 }
 </style>

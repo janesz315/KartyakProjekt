@@ -63,12 +63,7 @@ export default {
     searchInput: debounce(function(newValue) {
       this.searchWord = newValue;
     }, 300), // 300ms késleltetés
-    // searchInput(data) {
-    //   this.searchWord = data;
-    //   if (!data) {
-    //     this.searchWord = null;
-    //   }
-    // },
+
   },
   data() {
     return {
@@ -101,23 +96,17 @@ export default {
   </div>
       <div class="d-flex align-items-center" role="search">
         <label for="searchWord" class="form-label text-nowrap m-0"
-          >Keress egy szereplőre!</label
+          ></label
         >
         <input
           id="searchWord"
           class="form-control me-2 ms-2"
           type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Keress egy szereplőre!"
+          aria-label="Keress egy szereplőre!"
           v-model="searchInput"
         />
-        <button
-          class="btn btn-outline-success"
-          type="submit"
-          @click="searchWord = searchInput"
-        >
-          Search
-        </button>
+        
       </div>
     </nav>
 
@@ -130,21 +119,12 @@ export default {
 <style>
 
 body {
-  background-image: url('/public/hatter.jpg'); /* Cseréld ki a pontos útvonalra */
+  background-image: url('hatter.jpg'); /* Cseréld ki a pontos útvonalra */
   background-size: cover; /* A kép kitölti a teljes hátteret */
   background-repeat: no-repeat; /* Megakadályozza a kép ismétlését */
   background-position: center; /* A kép középre pozicionálása */
   background-attachment: fixed;
   
 }
-.btn {
-  padding: 10px 20px; /* Alapértelmezett méret */
-}
 
-@media (max-width: 576px) {
-  .btn {
-    padding: 15px 25px; /* Nagyobb méret mobilon */
-    font-size: 1.2rem;  /* Nagyobb betűméret mobilon */
-  }
-}
 </style>

@@ -28,6 +28,7 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card-body {
@@ -36,4 +37,8 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.card:hover {
+  transform: scale(1.05);  /* Kicsit megnöveli a kártyát hover esetén */
+}
+
   </style>
