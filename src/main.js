@@ -11,10 +11,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 //Icons: css
 import "bootstrap-icons/font/bootstrap-icons.min.css"
-import VueCarousel from 'vue-carousel';
-const app = createApp(App)
 
+const app = createApp(App)
 app.use(createPinia())
 app.use(router)
-app.use(VueCarousel);
 app.mount('#app')
